@@ -87,8 +87,12 @@ def webhook():
 def upload_qr_code(data):
     """Generate QR code and upload to WhatsApp Cloud API, return media_id"""
     try:
-        # Generate QR code in memory
+        # Generate QR code
         qr = qrcode.make(data)
+
+        # Convert to RGB to satisfy WhatsApp requirements
+        qr = qr.convert("RGB")
+
         buf = io.BytesIO()
         qr.save(buf, format="PNG")
         buf.seek(0)
