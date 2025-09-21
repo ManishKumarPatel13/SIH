@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: whatsapp-webhook
+    env: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --bind 0.0.0.0:$PORT webhook:app
+    envVars:
+      - key: VERIFY_TOKEN
+        sync: false  # This will prompt you to set it manually in Render dashboard
