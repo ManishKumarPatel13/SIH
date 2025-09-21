@@ -38,7 +38,7 @@ def webhook():
                         print(f"Message from {from_number}: {text}")
 
                         # Send an auto-reply
-                        send_whatsapp_message(from_number, f"Thanks for your message! You said: {text}")
+                        send_whatsapp_message(from_number, f"Welcome to our Jharkhand Tourism Service!\n Your Query: {text}")
 
         return jsonify({"status": "received"}), 200
 
